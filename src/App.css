@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+form {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.recipe-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 20px;
+}
+
+.recipe-container__legend {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.recipe__input_heading {
+}
+
+.recipe__input_name {
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+}
+
+.recipe__input-percent-container {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.recipe__input_percent {
+  width: 100%;
+  border: none;
+  padding-left: 15%;
+  font-size: 16px;
+}
+
+.recipe__calculated-weight {
+  border: 1px solid black;
+}
+
+.recipe-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: black;
+  color: white;
+}
+
+.recipe-banner__text {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.recipe__button_delete {
+  font-weight: bold;
+  font-size: 28px;
+  height: 30px;
+  line-height: 0px;
+  width: 100%;
+  background-color: #ffb699;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.recipe__button_delete:hover {
+  cursor: pointer;
+  background-color: #ff8859;
+}
+
+.recipe-button_add {
+  height: 30px;
+  width: 100px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.recipe-header {
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  padding: 5px;
+}
+
+.recipe-section {
+  max-width: 575px;
+  margin: 0 auto;
+}
+
+.recipe-section_ingredients {
+  margin-top: 50px;
+}
+
+.recipe__input_percent-text {
+  margin-right: 10px;
+}
+
+.recipe-ingredient-container {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(
+      0,
+      0.5fr
+    );
+  grid-gap: 20px;
+  border: 2px solid lightgray;
+  box-shadow: 5px 5px 5px whitesmoke;
+  padding: 10px 5px;
+  margin-top: 20px;
+}
+
+.recipe-ingredient-container__calc-weight-div {
+  border: 1px solid black;
+  line-height: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  height: 30px;
+}
+
+.recipe-ingredient-container__calc-weight-value {
+  margin: 0px;
+}
+
+@media only screen and (min-width: 600px) {
+  .recipe-container__legend {
+    font-size: 21px;
+  }
+}
