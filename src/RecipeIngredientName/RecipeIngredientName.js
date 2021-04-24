@@ -9,7 +9,7 @@ function RecipeIngredientName(props) {
         placeholder="Ingredient"
         name={props.inputName}
         value={props.ingredientTextValue}
-        onChange={(e) => props.handleChange(e)}
+        onChange={(e) => props.handleChangeIngredient(e)}
       />
     </div>
   );

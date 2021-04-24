@@ -8,7 +8,7 @@ function RecipeIngredientPercent(props) {
         type="number"
         name={props.inputName}
         value={props.ingredientPercentValue}
-        onChange={(e) => props.handleChange(e)}
+        onChange={(e) => props.handleChangeIngredient(e)}
       />
       <p className="recipe__input_percent-text">%</p>
     </div>

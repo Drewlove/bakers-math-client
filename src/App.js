@@ -19,22 +19,16 @@ function App() {
     setRecipe({ ...recipe, [e.target.name]: e.target.value });
   };
 
-  const handleChangeFlours = (e) => {
+  const handleChangeIngredient = (e, ingredientType) => {
     let nameArr = e.target.name.split("_");
     const propertyName = nameArr[0];
     const id = parseInt(nameArr[1]);
-    setFlours(
-      flours.map((key) =>
-        key.id === id ? { ...key, [propertyName]: e.target.value } : key
-      )
-    );
+    if (ingredientType === "flour") updateFlour(e, propertyName, id);
+    else if (ingredientType === "ingredient")
+      updateIngredient(e, propertyName, id);
   };
 
-  //duplicative?
-  const handleChangeIngredients = (e) => {
-    let nameArr = e.target.name.split("_");
-    const propertyName = nameArr[0];
-    const id = parseInt(nameArr[1]);
+  const updateIngredient = (e, propertyName, id) => {
     setIngredients(
       ingredients.map((key) =>
         key.id === id ? { ...key, [propertyName]: e.target.value } : key
@@ -42,8 +36,16 @@ function App() {
     );
   };
 
-  const renderFlours = () => {
-    return flours.map((key, i) => {
+  const updateFlour = (e, propertyName, id) => {
+    setFlours(
+      flours.map((key) =>
+        key.id === id ? { ...key, [propertyName]: e.target.value } : key
+      )
+    );
+  };
+
+  const renderIngredients = (arr, ingredientType) => {
+    return arr.map((key, i) => {
       const id = key.id;
       return (
         <RecipeIngredientContainer
@@ -53,35 +55,23 @@ function App() {
           ingredientCount={i}
           ingredientTextValue={key.name}
           ingredientPercentValue={key.percent}
-          handleChange={(e) => handleChangeFlours(e)}
-          handleSubtractClick={(e, id) => handleSubtractClick(e, id)}
+          handleChangeIngredient={(e) =>
+            handleChangeIngredient(e, ingredientType)
+          }
+          handleSubtractClick={(e, id) =>
+            handleSubtractClick(e, id, ingredientType)
+          }
         />
       );
     });
   };
 
-  //duplicative?
-  const renderIngredients = () => {
-    return ingredients.map((key, i) => {
-      const id = key.id;
-      return (
-        <RecipeIngredientContainer
-          key={id}
-          id={id}
-          flourTotal={recipe.flour_total}
-          ingredientCount={i}
-          ingredientTextValue={key.name}
-          ingredientPercentValue={key.percent}
-          handleChange={(e) => handleChangeIngredients(e)}
-          handleSubtractClick={(e, id) => handleSubtractClick(e, id)}
-        />
-      );
-    });
-  };
-
-  const handleSubtractClick = (e, id) => {
+  const handleSubtractClick = (e, id, ingredientType) => {
     e.preventDefault();
-    setFlours(flours.filter((key) => key.id !== id));
+    if (ingredientType === "flour")
+      setFlours(flours.filter((key) => key.id !== id));
+    else if (ingredientType === "ingredient")
+      setIngredients(ingredients.filter((key) => key.id !== id));
   };
 
   const handleAddClickFlour = (e) => {
@@ -135,7 +125,7 @@ function App() {
               Add
             </button>
           </div>
-          {renderFlours()}
+          {renderIngredients(flours, "flour")}
         </section>
         <section className="recipe-section recipe-section_ingredients">
           <div className="recipe-banner">
@@ -147,7 +137,7 @@ function App() {
               Add
             </button>
           </div>
-          {renderIngredients()}
+          {renderIngredients(ingredients, "ingredient")}
         </section>
       </form>
     </main>

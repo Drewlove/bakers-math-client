@@ -32,13 +32,13 @@ function RecipeIngredientContainer(props) {
         <RecipeIngredientName
           inputName={`name_${props.id}`}
           ingredientTextValue={props.ingredientTextValue}
-          handleChange={(e) => props.handleChange(e)}
+          handleChangeIngredient={(e) => props.handleChangeIngredient(e)}
         />
         <div className="recipe-ingredient-percent-wt-btn-container">
           <RecipeIngredientPercent
             inputName={`percent_${props.id}`}
             ingredientPercentValue={props.ingredientPercentValue}
-            handleChange={(e) => props.handleChange(e)}
+            handleChangeIngredient={(e) => props.handleChangeIngredient(e)}
           />
 
           <div className="recipe-ingredient-container__calc-weight-div">
