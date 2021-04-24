@@ -68,6 +68,7 @@ form {
   color: white;
   border: none;
   border-radius: 5px;
+  text-align: center;
 }
 
 .recipe__button_delete:hover {
