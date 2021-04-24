@@ -101,6 +101,10 @@ form {
   background-color: white;
   color: black;
   cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .recipe-header {

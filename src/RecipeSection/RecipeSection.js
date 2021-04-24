@@ -35,7 +35,7 @@ function RecipeSection(props) {
               props.handleClickAddIngredient(e, props.ingredientType)
             }
           >
-            Add
+            +
           </button>
         </div>
         {renderIngredients(props.ingredients)}
