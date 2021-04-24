@@ -2,9 +2,9 @@ import React from "react";
 
 function RecipeIngredientName(props) {
   return (
-    <div>
+    <div className="recipe-ingredient-name-container">
       <input
-        className="recipe__input_name"
+        className="recipe-ingredient__input recipe-ingredient__input_name"
         type="text"
         placeholder="Ingredient"
         name={props.inputName}

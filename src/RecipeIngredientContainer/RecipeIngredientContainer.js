@@ -34,16 +34,18 @@ function RecipeIngredientContainer(props) {
           ingredientTextValue={props.ingredientTextValue}
           handleChange={(e) => props.handleChange(e)}
         />
-        <RecipeIngredientPercent
-          inputName={`percent_${props.id}`}
-          ingredientPercentValue={props.ingredientPercentValue}
-          handleChange={(e) => props.handleChange(e)}
-        />
+        <div className="recipe-ingredient-percent-wt-btn-container">
+          <RecipeIngredientPercent
+            inputName={`percent_${props.id}`}
+            ingredientPercentValue={props.ingredientPercentValue}
+            handleChange={(e) => props.handleChange(e)}
+          />
 
-        <div className="recipe-ingredient-container__calc-weight-div">
-          {getWeight()}
+          <div className="recipe-ingredient-container__calc-weight-div">
+            {getWeight()}
+          </div>
+          <div>{renderSubtractButton()}</div>
         </div>
-        <div>{renderSubtractButton()}</div>
       </div>
     </>
   );

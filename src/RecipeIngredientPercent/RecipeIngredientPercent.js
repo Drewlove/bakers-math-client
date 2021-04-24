@@ -4,7 +4,7 @@ function RecipeIngredientPercent(props) {
   return (
     <div className="recipe__input-percent-container">
       <input
-        className="recipe__input_percent"
+        className="recipe-ingredient__input_percent"
         type="number"
         name={props.inputName}
         value={props.ingredientPercentValue}
