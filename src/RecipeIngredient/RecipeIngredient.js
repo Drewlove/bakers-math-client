@@ -2,7 +2,7 @@ import React from "react";
 import RecipeIngredientName from "../RecipeIngredientName/RecipeIngredientName";
 import RecipeIngredientPercent from "../RecipeIngredientPercent/RecipeIngredientPercent";
 
-function RecipeIngredientContainer(props) {
+function RecipeIngredient(props) {
   const renderSubtractButton = () => {
     const id = props.id;
     return (
@@ -51,4 +51,4 @@ function RecipeIngredientContainer(props) {
   );
 }
 
-export default RecipeIngredientContainer;
+export default RecipeIngredient;

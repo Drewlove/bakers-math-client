@@ -1,8 +1,8 @@
 import "./App.css";
-import Recipe from "./Recipe/Recipe";
+import RecipeContainer from "./RecipeContainer/RecipeContainer";
 
 function App() {
-  return <Recipe />;
+  return <RecipeContainer />;
 }
 
 export default App;
