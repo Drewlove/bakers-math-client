@@ -23,6 +23,7 @@ form {
 }
 
 .recipe__input_heading {
+  font-size: 16px;
 }
 
 .recipe-ingredient__input_name {
