@@ -74,15 +74,15 @@ function App() {
       setIngredients(ingredients.filter((key) => key.id !== id));
   };
 
-  const handleAddClickFlour = (e) => {
+  const handleAddClickIngredient = (e, ingredientType) => {
     e.preventDefault();
-    setFlours([...flours, { name: "", percent: "", id: Date.now() }]);
-  };
-
-  //duplicative
-  const handleAddClickIngredients = (e) => {
-    e.preventDefault();
-    setIngredients([...ingredients, { name: "", percent: "", id: Date.now() }]);
+    if (ingredientType === "flour")
+      setFlours([...flours, { name: "", percent: "", id: Date.now() }]);
+    else if (ingredientType === "ingredient")
+      setIngredients([
+        ...ingredients,
+        { name: "", percent: "", id: Date.now() },
+      ]);
   };
 
   return (
@@ -120,7 +120,8 @@ function App() {
             <p className="recipe-banner__text">Flour</p>
             <button
               className="recipe-button_add"
-              onClick={(e) => handleAddClickFlour(e)}
+              // onClick={(e) => handleAddClickFlour(e)}
+              onClick={(e) => handleAddClickIngredient(e, "flour")}
             >
               Add
             </button>
@@ -132,7 +133,8 @@ function App() {
             <p className="recipe-banner__text">Ingredients</p>
             <button
               className="recipe-button_add"
-              onClick={(e) => handleAddClickIngredients(e)}
+              // onClick={(e) => handleAddClickIngredients(e)}
+              onClick={(e) => handleAddClickIngredient(e, "ingredient")}
             >
               Add
             </button>
