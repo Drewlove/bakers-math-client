@@ -1,8 +1,13 @@
 import "./App.css";
-import RecipeContainer from "./RecipeContainer/RecipeContainer";
-
+import AppRoutes from "./AppRoutes/AppRoutes";
+import NavBar from "./NavBar/NavBar";
 function App() {
-  return <RecipeContainer />;
+  return (
+    <>
+      <NavBar />
+      <AppRoutes />
+    </>
+  );
 }
 
 export default App;
