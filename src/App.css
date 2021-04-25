@@ -188,7 +188,6 @@ form {
 .recipe-list__list-item:hover {
   box-shadow: 4px 4px 4px darkgray;
   cursor: pointer;
-  font-weight: bold;
 }
 
 @media only screen and (min-width: 600px) {

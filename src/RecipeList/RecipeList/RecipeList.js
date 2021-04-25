@@ -3,7 +3,7 @@ import RecipeListItem from "../RecipeListItem/RecipeListItem";
 
 function RecipeList(props) {
   const renderList = () => {
-    return props.recipeList.map((key) => {
+    return props.data[0].map((key) => {
       return <RecipeListItem key={key.recipe_id} recipe={key} />;
     });
   };
