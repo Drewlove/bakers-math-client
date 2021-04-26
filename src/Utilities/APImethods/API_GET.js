@@ -82,6 +82,7 @@ const getUrls = (endpointArr) => {
     let url = `${config.API_ENDPOINT}/${key}`;
     return url;
   });
+  console.log(urlArr);
   return urlArr;
 };
 
