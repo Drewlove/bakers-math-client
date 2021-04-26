@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import RecipeFormHeader from "../RecipeFormHeader/RecipeFormHeader";
 import RecipeFormSection from "../RecipeFormSection/RecipeFormSection";
-import { useParams } from "react-router-dom";
 
 function RecipeForm(props) {
   const [recipe, setRecipe] = useState({
@@ -78,7 +77,6 @@ function RecipeForm(props) {
       ]);
   };
 
-  const { recipeId } = useParams();
   return (
     <form>
       <RecipeFormHeader
