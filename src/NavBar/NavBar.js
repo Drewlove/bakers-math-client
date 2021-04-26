@@ -5,8 +5,10 @@ function NavBar() {
   return (
     <nav className="navbar">
       <div className="navbar__content">
-        <h1>Baker's Books</h1>
-        <Link className="navbar__link-new" to="/form/recipe/new">
+        <Link className="navbar__link" to="/">
+          Baker's Books
+        </Link>
+        <Link className="navbar__link" to="/form/recipe/new">
           New
         </Link>
       </div>
