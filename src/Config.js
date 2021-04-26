@@ -4,6 +4,6 @@ export default {
   API_ENDPOINT: endpoint,
   HEADERS: {
     "Content-Type": "application/json",
-    Authorization: `Bearer 1234`,
+    Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
   },
 };

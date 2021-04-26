@@ -23,7 +23,7 @@ function RecipeForm(props) {
       recipe_name: recipe.recipe_name,
       flour_total: recipe.flour_total,
     });
-  }, []);
+  }, [props.data]);
 
   const getArrWithKeyIds = (arr) => {
     return arr.map((key) => {

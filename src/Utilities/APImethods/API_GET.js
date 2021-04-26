@@ -86,6 +86,7 @@ const getUrls = (endpointArr) => {
 };
 
 const fetchResponseArr = async (urls, token) => {
+  console.log(token);
   const responseArr = await Promise.all(
     urls.map((url) => {
       return fetch(url, {
