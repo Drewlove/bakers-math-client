@@ -12,11 +12,13 @@ function FormSaveButton(props) {
   //   props.endpointSuffix,
   //   props.rowId
   // );
-  const [saveData] = API_SAVE(
+  const [resSave, saveData] = API_SAVE(
     props.formData,
     props.endpointSuffix,
     props.rowId
   );
+
+  console.log(resSave);
 
   // const [modal, setModal] = useState({
   //   display: false,
