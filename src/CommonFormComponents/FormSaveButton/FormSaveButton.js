@@ -17,7 +17,6 @@ function FormSaveButton(props) {
     props.endpointSuffix,
     props.rowId
   );
-
   console.log(resSave);
 
   // const [modal, setModal] = useState({
