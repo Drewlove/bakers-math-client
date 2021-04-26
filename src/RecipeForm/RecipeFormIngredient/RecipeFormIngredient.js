@@ -4,10 +4,9 @@ import RecipeFormIngredientPercent from "../RecipeFormIngredientPercent/RecipeFo
 
 function RecipeFormIngredient(props) {
   const renderSubtractButton = () => {
-    const id = props.id;
     return (
       <button
-        onClick={(e) => props.handleSubtractClick(e, id)}
+        onClick={(e) => props.handleSubtractClick(e)}
         className="recipe__button_delete"
       >
         -
@@ -30,13 +29,13 @@ function RecipeFormIngredient(props) {
     <>
       <div className="recipe-ingredient-container">
         <RecipeFormIngredientName
-          inputName={`name_${props.id}`}
+          inputName={`name-${props.ingredient_id}`}
           ingredientTextValue={props.ingredientTextValue}
           handleChangeIngredient={(e) => props.handleChangeIngredient(e)}
         />
         <div className="recipe-ingredient-percent-wt-btn-container">
           <RecipeFormIngredientPercent
-            inputName={`percent_${props.id}`}
+            inputName={`percent-${props.ingredient_id}`}
             ingredientPercentValue={props.ingredientPercentValue}
             handleChangeIngredient={(e) => props.handleChangeIngredient(e)}
           />

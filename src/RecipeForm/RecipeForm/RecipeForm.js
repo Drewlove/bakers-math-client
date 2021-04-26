@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RecipeFormHeader from "../RecipeFormHeader/RecipeFormHeader";
 import RecipeFormSection from "../RecipeFormSection/RecipeFormSection";
+import FormSaveButton from "../../CommonFormComponents/FormSaveButton/FormSaveButton";
 import { useParams } from "react-router-dom";
 
 function RecipeForm(props) {
@@ -20,8 +21,8 @@ function RecipeForm(props) {
     if (recipeId !== "new") {
       const recipe = props.data[0];
       const { flours, ingredients } = recipe;
-      setFlours(getArrWithKeyIds(flours));
-      setIngredients(getArrWithKeyIds(ingredients));
+      setFlours(flours);
+      setIngredients(ingredients);
       setRecipe({
         recipe_name: recipe.recipe_name,
         flour_total: recipe.flour_total,
@@ -33,20 +34,14 @@ function RecipeForm(props) {
     }
   }, [props.data, recipeId]);
 
-  const getArrWithKeyIds = (arr) => {
-    return arr.map((key) => {
-      return { ...key, id: `${key.name}-${key.percent}` };
-    });
-  };
-
   const handleChangeRecipe = (e) => {
     setRecipe({ ...recipe, [e.target.name]: e.target.value });
   };
 
   const handleChangeIngredient = (e, ingredientType) => {
-    let nameArr = e.target.name.split("_");
+    let nameArr = e.target.name.split("-");
     const propertyName = nameArr[0];
-    const id = parseInt(nameArr[1]);
+    const id = nameArr[1];
     if (ingredientType === "flour") updateFlour(e, propertyName, id);
     else if (ingredientType === "ingredient")
       updateIngredient(e, propertyName, id);
@@ -54,9 +49,9 @@ function RecipeForm(props) {
 
   const updateIngredient = (e, propertyName, id) => {
     setIngredients(
-      ingredients.map((key) =>
-        key.id === id ? { ...key, [propertyName]: e.target.value } : key
-      )
+      ingredients.map((key) => {
+        return key.id === id ? { ...key, [propertyName]: e.target.value } : key;
+      })
     );
   };
 
@@ -123,6 +118,19 @@ function RecipeForm(props) {
         handleSubtractClick={(e, id, ingredientType) =>
           handleSubtractClick(e, id, ingredientType)
         }
+      />
+      <FormSaveButton
+        formData={{
+          recipe_name: recipe.recipe_name,
+          flour_total: recipe.flour_total,
+          flours: flours,
+          ingredients: ingredients,
+        }}
+        formName="recipe"
+        endpointSuffix="recipes"
+        redirectSuffix="/"
+        rowId={recipeId}
+        // setFormError={setFormError}
       />
     </form>
   );

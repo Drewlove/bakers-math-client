@@ -4,11 +4,11 @@ import RecipeFormIngredient from "../RecipeFormIngredient/RecipeFormIngredient";
 function RecipeFormSection(props) {
   const renderIngredients = (arr) => {
     return arr.map((key, i) => {
-      const id = key.id;
+      const { id } = key;
       return (
         <RecipeFormIngredient
           key={id}
-          id={id}
+          ingredient_id={id}
           flourTotal={props.recipe.flour_total}
           ingredientCount={i}
           ingredientTextValue={key.name}
