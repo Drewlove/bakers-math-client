@@ -5,10 +5,11 @@ import FetchData from "../../FetchData/FetchData";
 
 function RecipeFormContainer() {
   const { recipeId } = useParams();
+  let endpointArr = recipeId === `new` ? [] : [`recipes/${recipeId}`];
 
   return (
     <>
-      <FetchData endpointArr={[`recipes/${recipeId}`]}>
+      <FetchData endpointArr={endpointArr}>
         <RecipeForm />
       </FetchData>
     </>

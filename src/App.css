@@ -11,6 +11,7 @@
 form {
   margin: 0 auto;
   max-width: 600px;
+  padding: 0px 20px;
 }
 
 .navbar {
@@ -20,9 +21,23 @@ form {
   padding: 0px;
   top: 0px;
   height: 50px;
-  justify-content: center;
-  align-items: center;
+}
+
+.navbar__content {
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.navbar__link-new {
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  font-size: 21px;
+  padding: 5px;
 }
 
 .recipe-container {
@@ -135,7 +150,6 @@ form {
 .recipe-section {
   max-width: 575px;
   margin: 25px auto;
-  padding: 0px 10px;
 }
 
 .recipe-section_ingredients {

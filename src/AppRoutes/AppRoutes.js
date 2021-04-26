@@ -6,7 +6,7 @@ import RecipeListContainer from "../RecipeList/RecipeListContainer/RecipeListCon
 function AppRoutes() {
   return (
     <Switch>
-      <Route path="/form/:recipeId" component={RecipeFormContainer} />
+      <Route path="/form/recipe/:recipeId" component={RecipeFormContainer} />
       <Route exact path="/" component={RecipeListContainer} />
     </Switch>
   );

@@ -9,7 +9,7 @@ function FetchData(props) {
 
   const renderSkeleton = () => {
     // return <SkeletonLoader skeletonNumber={props.skeletonNumber} />;
-    return <h1>Skeleton</h1>;
+    return <h1>Loading...</h1>;
   };
 
   const renderResults = () => {

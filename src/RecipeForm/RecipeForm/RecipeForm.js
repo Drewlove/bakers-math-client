@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RecipeFormHeader from "../RecipeFormHeader/RecipeFormHeader";
 import RecipeFormSection from "../RecipeFormSection/RecipeFormSection";
+import { useParams } from "react-router-dom";
 
 function RecipeForm(props) {
   const [recipe, setRecipe] = useState({
@@ -13,16 +14,24 @@ function RecipeForm(props) {
     { name: "", percent: "", id: "" },
   ]);
 
+  const { recipeId } = useParams();
+
   useEffect(() => {
-    const recipe = props.data[0];
-    const { flours, ingredients } = recipe;
-    setFlours(getArrWithKeyIds(flours));
-    setIngredients(getArrWithKeyIds(ingredients));
-    setRecipe({
-      recipe_name: recipe.recipe_name,
-      flour_total: recipe.flour_total,
-    });
-  }, [props.data]);
+    if (recipeId !== "new") {
+      const recipe = props.data[0];
+      const { flours, ingredients } = recipe;
+      setFlours(getArrWithKeyIds(flours));
+      setIngredients(getArrWithKeyIds(ingredients));
+      setRecipe({
+        recipe_name: recipe.recipe_name,
+        flour_total: recipe.flour_total,
+      });
+    } else {
+      setFlours([{ name: "", percent: "", id: Date.now() }]);
+      setIngredients([{ name: "", percent: "", id: Date.now() }]);
+      setRecipe({ recipe_name: "", flour_total: "" });
+    }
+  }, [props.data, recipeId]);
 
   const getArrWithKeyIds = (arr) => {
     return arr.map((key) => {
