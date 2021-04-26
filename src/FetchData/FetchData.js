@@ -5,7 +5,7 @@ import { API_GET } from "../Utilities/APImethods/API_GET";
 
 function FetchData(props) {
   // const [{ data, isLoading, isError, error }] = API_GET(props.endpointArr);
-  const [{ data, isLoading, isError }] = API_GET(props.endpointArr);
+  const [{ data, isLoading, isError, error }] = API_GET(props.endpointArr);
 
   const renderSkeleton = () => {
     // return <SkeletonLoader skeletonNumber={props.skeletonNumber} />;
@@ -18,7 +18,11 @@ function FetchData(props) {
 
   const renderError = () => {
     // return <Error error={error} />;
-    return <h1>Error</h1>;
+    return (
+      <h1>
+        {error.status} {error.statusText}
+      </h1>
+    );
   };
 
   const renderContainer = () => {
