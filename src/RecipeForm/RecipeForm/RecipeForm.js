@@ -97,7 +97,7 @@ function RecipeForm(props) {
         handleDelete={handleDelete}
         endpointSuffix="recipes"
         recipeId={recipeId}
-        redirectSuffix="/"
+        redirectSuffix=""
       />
     );
   };
