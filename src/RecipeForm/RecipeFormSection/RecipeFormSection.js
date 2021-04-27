@@ -17,7 +17,7 @@ function RecipeFormSection(props) {
           handleChangeIngredient={(e) =>
             props.handleChangeIngredient(e, props.ingredientType)
           }
-          handleSubtractClick={(e, id) =>
+          handleSubtractClick={(e) =>
             props.handleSubtractClick(e, id, props.ingredientType)
           }
         />

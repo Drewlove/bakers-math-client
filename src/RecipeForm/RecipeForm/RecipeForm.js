@@ -28,8 +28,8 @@ function RecipeForm(props) {
         flour_total: recipe.flour_total,
       });
     } else {
-      setFlours([{ name: "", percent: "", id: Date.now() }]);
-      setIngredients([{ name: "", percent: "", id: Date.now() }]);
+      setFlours([{ name: "", percent: "", id: generateStringId() }]);
+      setIngredients([{ name: "", percent: "", id: generateStringId() }]);
       setRecipe({ recipe_name: "", flour_total: "" });
     }
   }, [props.data, recipeId]);
@@ -39,7 +39,6 @@ function RecipeForm(props) {
   };
 
   const handleChangeIngredient = (e, ingredientType) => {
-    console.log("name:", e.target.name);
     let nameArr = e.target.name.split("-");
     const propertyName = nameArr[0];
     const id = nameArr[1];
@@ -51,7 +50,6 @@ function RecipeForm(props) {
   const updateIngredient = (e, propertyName, id) => {
     setIngredients(
       ingredients.map((key) => {
-        console.log("key.id:", key.id, "id:", id);
         return key.id === id ? { ...key, [propertyName]: e.target.value } : key;
       })
     );
@@ -60,11 +58,11 @@ function RecipeForm(props) {
   const updateFlour = (e, propertyName, id) => {
     setFlours(
       flours.map((key) => {
-        console.log("key.id:", key.id, "id:", id);
         return key.id === id ? { ...key, [propertyName]: e.target.value } : key;
       })
     );
   };
+
   const handleSubtractClick = (e, id, ingredientType) => {
     e.preventDefault();
     if (ingredientType === "flour")
@@ -76,12 +74,16 @@ function RecipeForm(props) {
   const handleClickAddIngredient = (e, ingredientType) => {
     e.preventDefault();
     if (ingredientType === "flour")
-      setFlours([...flours, { name: "", percent: "", id: Date.now() }]);
+      setFlours([...flours, { name: "", percent: "", id: generateStringId() }]);
     else if (ingredientType === "ingredient")
       setIngredients([
         ...ingredients,
-        { name: "", percent: "", id: Date.now() },
+        { name: "", percent: "", id: generateStringId() },
       ]);
+  };
+
+  const generateStringId = () => {
+    return Date.now().toString();
   };
 
   return (
