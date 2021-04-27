@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RecipeFormHeader from "../RecipeFormHeader/RecipeFormHeader";
 import RecipeFormSection from "../RecipeFormSection/RecipeFormSection";
 import FormSaveButton from "../../CommonFormComponents/FormSaveButton/FormSaveButton";
+import FormDeleteButton from "../../CommonFormComponents/FormDeleteButton/FormDeleteButton";
 import { useParams } from "react-router-dom";
 
 function RecipeForm(props) {
@@ -86,8 +87,24 @@ function RecipeForm(props) {
     return Date.now().toString();
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+  };
+
+  const renderDeleteButton = () => {
+    return (
+      <FormDeleteButton
+        handleDelete={handleDelete}
+        endpointSuffix="recipes"
+        recipeId={recipeId}
+        redirectSuffix="/"
+      />
+    );
+  };
+
   return (
     <form>
+      {props.recipeId !== "new" ? renderDeleteButton() : null}
       <RecipeFormHeader
         recipe={recipe}
         handleChangeRecipe={(e) => handleChangeRecipe(e)}
