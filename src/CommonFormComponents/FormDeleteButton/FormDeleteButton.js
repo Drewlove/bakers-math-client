@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+import React from "react";
 import { API_DELETE } from "../../Utilities/APImethods/API_DELETE";
 // import Modal from "../../../Modal/Modal";
 // import { useHistory } from "react-router-dom";
