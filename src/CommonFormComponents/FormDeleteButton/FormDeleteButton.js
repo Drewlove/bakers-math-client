@@ -90,17 +90,17 @@ function FormDeleteButton(props) {
   };
 
   return (
-    <section className="delete-button-section">
+    <div className="delete-button">
       {modal.display === true ? renderModal() : null}
       <button
         id="button-delete"
-        className="button delete-button-section__button"
+        className="button-save-delete button-save-delete_delete"
         value="delete"
         onClick={handleDeleteClick}
       >
         Delete
       </button>
-    </section>
+    </div>
   );
 }
 

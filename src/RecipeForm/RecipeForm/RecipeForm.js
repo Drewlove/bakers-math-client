@@ -104,7 +104,6 @@ function RecipeForm(props) {
 
   return (
     <form>
-      {props.recipeId !== "new" ? renderDeleteButton() : null}
       <RecipeFormHeader
         recipe={recipe}
         handleChangeRecipe={(e) => handleChangeRecipe(e)}
@@ -141,19 +140,22 @@ function RecipeForm(props) {
           handleSubtractClick(e, id, ingredientType)
         }
       />
-      <FormSaveButton
-        formData={{
-          recipe_name: recipe.recipe_name,
-          flour_total: recipe.flour_total,
-          flours: flours,
-          ingredients: ingredients,
-        }}
-        formName="recipe"
-        endpointSuffix="recipes"
-        redirectSuffix=""
-        rowId={recipeId}
-        // setFormError={setFormError}
-      />
+      <section className="recipe__button-section">
+        {recipeId !== "new" ? renderDeleteButton() : null}
+        <FormSaveButton
+          formData={{
+            recipe_name: recipe.recipe_name,
+            flour_total: recipe.flour_total,
+            flours: flours,
+            ingredients: ingredients,
+          }}
+          formName="recipe"
+          endpointSuffix="recipes"
+          redirectSuffix=""
+          rowId={recipeId}
+          // setFormError={setFormError}
+        />
+      </section>
     </form>
   );
 }

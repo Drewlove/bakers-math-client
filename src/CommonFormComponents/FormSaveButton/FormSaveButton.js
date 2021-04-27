@@ -74,18 +74,18 @@ function FormSaveButton(props) {
   };
 
   return (
-    <section className="save-button-section">
+    <div className="save-button">
       {modal.display ? renderModal() : null}
       <button
         id="button-save"
-        className="button save-button-section__button"
+        className="button-save-delete button-save-delete_save"
         type="submit"
         value="Save"
         onClick={handleSave}
       >
         Save
       </button>
-    </section>
+    </div>
   );
 }
 
