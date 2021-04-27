@@ -1,65 +1,58 @@
-// import React, { useEffect, useState } from "react";
-import React from "react";
-// import Modal from "../../../Modal/Modal";
+import React, { useEffect, useState } from "react";
+import Modal from "../../Modal/Modal";
 import { API_SAVE } from "../../Utilities/APImethods/API_SAVE";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import { GET_ALL_ERROR_MESSAGES } from "../../ValidateForm/GET_ALL_ERROR_MESSAGES";
 
 function FormSaveButton(props) {
-  // const history = useHistory();
-  // const [resSave, saveData] = API_SAVE(
-  //   props.formData,
-  //   props.endpointSuffix,
-  //   props.rowId
-  // );
+  const history = useHistory();
   const [resSave, saveData] = API_SAVE(
     props.formData,
     props.endpointSuffix,
     props.rowId
   );
-  console.log(resSave);
 
-  // const [modal, setModal] = useState({
-  //   display: false,
-  // });
+  const [modal, setModal] = useState({
+    display: false,
+  });
 
-  // useEffect(() => {
-  //   if (resSave.saveSuccessful)
-  //     return setModal({
-  //       display: true,
-  //       type: "notification",
-  //       text: "Save successful.",
-  //       redirect: true,
-  //       redirectSuffix: props.redirectSuffix,
-  //     });
+  useEffect(() => {
+    if (resSave.saveSuccessful)
+      return setModal({
+        display: true,
+        type: "notification",
+        text: "Save successful.",
+        redirect: true,
+        redirectSuffix: props.redirectSuffix,
+      });
 
-  //   if (resSave.saveError.length > 0) {
-  //     return setModal({
-  //       display: true,
-  //       type: "notification",
-  //       text: "Failed to save.",
-  //       redirect: false,
-  //       redirectSuffix: "",
-  //     });
-  //   }
-  // }, [resSave, props.redirectSuffix]);
+    if (resSave.saveError.length > 0) {
+      return setModal({
+        display: true,
+        type: "notification",
+        text: "Failed to save.",
+        redirect: false,
+        redirectSuffix: "",
+      });
+    }
+  }, [resSave, props.redirectSuffix]);
 
-  // const hideModal = (e) => {
-  //   e.preventDefault();
-  //   setModal({ ...modal, display: false });
-  //   if (modal.redirect) history.push(`/${props.redirectSuffix}`);
-  // };
+  const hideModal = (e) => {
+    e.preventDefault();
+    setModal({ ...modal, display: false });
+    if (modal.redirect) history.push(`/${props.redirectSuffix}`);
+  };
 
-  // const renderModal = () => {
-  //   return (
-  //     <Modal
-  //       type={modal.type}
-  //       text={modal.text}
-  //       redirect={modal.redirect}
-  //       handleModalClose={(e) => hideModal(e)}
-  //     />
-  //   );
-  // };
+  const renderModal = () => {
+    return (
+      <Modal
+        type={modal.type}
+        text={modal.text}
+        redirect={modal.redirect}
+        handleModalClose={(e) => hideModal(e)}
+      />
+    );
+  };
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -82,7 +75,7 @@ function FormSaveButton(props) {
 
   return (
     <section className="save-button-section">
-      {/* {modal.display ? renderModal() : null} */}
+      {modal.display ? renderModal() : null}
       <button
         id="button-save"
         className="button save-button-section__button"

@@ -150,7 +150,7 @@ function RecipeForm(props) {
         }}
         formName="recipe"
         endpointSuffix="recipes"
-        redirectSuffix="/"
+        redirectSuffix=""
         rowId={recipeId}
         // setFormError={setFormError}
       />
