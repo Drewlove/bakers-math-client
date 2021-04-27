@@ -29,13 +29,13 @@ function RecipeFormIngredient(props) {
     <>
       <div className="recipe-ingredient-container">
         <RecipeFormIngredientName
-          inputName={`name-${props.ingredient_id}`}
+          inputName={`name-${props.id}`}
           ingredientTextValue={props.ingredientTextValue}
           handleChangeIngredient={(e) => props.handleChangeIngredient(e)}
         />
         <div className="recipe-ingredient-percent-wt-btn-container">
           <RecipeFormIngredientPercent
-            inputName={`percent-${props.ingredient_id}`}
+            inputName={`percent-${props.id}`}
             ingredientPercentValue={props.ingredientPercentValue}
             handleChangeIngredient={(e) => props.handleChangeIngredient(e)}
           />

@@ -8,7 +8,8 @@ function RecipeFormSection(props) {
       return (
         <RecipeFormIngredient
           key={id}
-          ingredient_id={id}
+          // ingredient_id={id}
+          id={id}
           flourTotal={props.recipe.flour_total}
           ingredientCount={i}
           ingredientTextValue={key.name}

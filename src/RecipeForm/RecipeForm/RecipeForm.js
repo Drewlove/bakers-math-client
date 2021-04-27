@@ -39,6 +39,7 @@ function RecipeForm(props) {
   };
 
   const handleChangeIngredient = (e, ingredientType) => {
+    console.log("name:", e.target.name);
     let nameArr = e.target.name.split("-");
     const propertyName = nameArr[0];
     const id = nameArr[1];
@@ -50,6 +51,7 @@ function RecipeForm(props) {
   const updateIngredient = (e, propertyName, id) => {
     setIngredients(
       ingredients.map((key) => {
+        console.log("key.id:", key.id, "id:", id);
         return key.id === id ? { ...key, [propertyName]: e.target.value } : key;
       })
     );
@@ -57,9 +59,10 @@ function RecipeForm(props) {
 
   const updateFlour = (e, propertyName, id) => {
     setFlours(
-      flours.map((key) =>
-        key.id === id ? { ...key, [propertyName]: e.target.value } : key
-      )
+      flours.map((key) => {
+        console.log("key.id:", key.id, "id:", id);
+        return key.id === id ? { ...key, [propertyName]: e.target.value } : key;
+      })
     );
   };
   const handleSubtractClick = (e, id, ingredientType) => {
